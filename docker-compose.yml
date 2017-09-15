@@ -1,0 +1,15 @@
+version: '2'
+
+services:
+
+  app:
+    build:
+      context: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/react-shoryuken
+      - /react-shoryuken/node_modules/
+#    command: "tail -f /dev/null"
+    environment:
+      CHOKIDAR_USEPOLLING: 1
