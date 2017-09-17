@@ -1,7 +1,13 @@
-import React  from 'react';
+import React from 'react';
+import SearchBar from "./SearchBar";
+import './Home.css';
 
 const Home = () => (
-  <div>Home</div>
+  <div>
+    <div className="Home-header">
+      <SearchBar />
+    </div>
+  </div>
 );
 
 export default Home;

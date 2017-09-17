@@ -6,6 +6,7 @@
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "install-peerdeps": "^1.2.0",
     "material-ui": "^0.19.1",
+    "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-router-dom": "^4.2.2",
