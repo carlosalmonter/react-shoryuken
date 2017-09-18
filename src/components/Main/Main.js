@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import './Main.css';
 import { MuiThemeProvider } from "material-ui";
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import Navigation from "../Navigation/Navigation";
+import { BrowserRouter } from "react-router-dom";
 
 const Main = ({ children }) => {
   const muiTheme = getMuiTheme({
@@ -18,9 +20,14 @@ const Main = ({ children }) => {
   return (
     <div className="App">
       <div className="App-intro">
-        <MuiThemeProvider muiTheme={muiTheme}>
-          { children }
-        </MuiThemeProvider>
+        <BrowserRouter>
+          <MuiThemeProvider muiTheme={muiTheme}>
+            <div>
+              <Navigation />
+              { children }
+            </div>
+          </MuiThemeProvider>
+        </BrowserRouter>
       </div>
     </div>
   )
