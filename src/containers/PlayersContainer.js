@@ -10,31 +10,23 @@ export default class PlayersContainer extends Component {
   };
 
   handlePlayerInputChange = (e) => {
-    this.setState({
-      searchString: e.target.value,
-    });
-  };
+    let searchQuery = e.target.value;
+    if(searchQuery.length > 2) {
+      this.setState({
+        isLoadingData: true,
+        searchData: [],
+      });
 
-  handleSearchClicked = (e) => {
-    this.setState({
-      isLoadingData: true,
-      searchData: [],
-    });
-
-    searchPlayer(this.state.searchString)
-      .then((response) => {
-        this.setState(() => ({
-          isLoadingData: false,
-          searchData: response,
-        }));
-      }).catch((error) => {
-      console.log(error);
-    });
-  };
-
-
-  handleViewProfile = (e) => {
-    console.log('view profile');
+      searchPlayer(searchQuery)
+        .then((response) => {
+          this.setState(() => ({
+            isLoadingData: false,
+            searchData: response,
+          }));
+        }).catch((error) => {
+        console.log(error);
+      });
+    }
   };
 
   render() {
