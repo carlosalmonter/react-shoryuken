@@ -1,6 +1,6 @@
 import React from 'react';
-import PlayersResults from "./PlayersResults";
-import PlayerSearch from "./PlayerSearch";
+import PlayersResults from './PlayersResults';
+import PlayerSearch from './PlayerSearch';
 
 const Players = ({ isLoadingData, playersData, onPlayerInputChange, onSearchClicked, onViewProfile }) => (
   <div>

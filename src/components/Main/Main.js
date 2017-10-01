@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Main.css';
-import { MuiThemeProvider } from "material-ui";
+import { MuiThemeProvider } from 'material-ui';
+import { BrowserRouter } from 'react-router-dom';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import Navigation from "../Navigation/Navigation";
-import { BrowserRouter } from "react-router-dom";
+import Navigation from '../Navigation/Navigation';
+import './Main.css';
 
 const Main = ({ children }) => {
   const muiTheme = getMuiTheme({
@@ -14,8 +14,8 @@ const Main = ({ children }) => {
       primaryTextColor: '#00B2A7A70',
       secondaryTextColor: '#B2A7A7',
       accent1Color: '#555',
-      textColor: '#B2A7A7'
-    }
+      textColor: '#B2A7A7',
+    },
   });
   return (
     <div className="App">
@@ -24,13 +24,13 @@ const Main = ({ children }) => {
           <MuiThemeProvider muiTheme={muiTheme}>
             <div>
               <Navigation />
-              { children }
+              {children}
             </div>
           </MuiThemeProvider>
         </BrowserRouter>
       </div>
     </div>
-  )
+  );
 };
 
 Main.propTypes = {

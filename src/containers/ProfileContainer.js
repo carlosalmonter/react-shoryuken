@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { getPlayer } from '../utils/Api';
-import Profile from "../components/Profile/Profile";
+import Profile from '../components/Profile/Profile';
 
 export default class ProfileContainer extends Component {
   state = {
@@ -14,8 +14,8 @@ export default class ProfileContainer extends Component {
           playerData: response,
         }));
       }).catch((error) => {
-      console.log(error);
-    });
+        console.log(error);
+      });
   }
 
   render() {
@@ -23,6 +23,6 @@ export default class ProfileContainer extends Component {
       <div>
         { this.state.playerData && <Profile playerData={this.state.playerData} /> }
       </div>
-    )
+    );
   }
 }
