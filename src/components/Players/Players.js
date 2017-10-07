@@ -2,7 +2,9 @@ import React from 'react';
 import PlayersResults from './PlayersResults';
 import PlayerSearch from './PlayerSearch';
 
-const Players = ({ isLoadingData, playersData, onPlayerInputChange, onSearchClicked, onViewProfile }) => (
+const Players = (
+  { isLoadingData, playersData, onPlayerInputChange, onSearchClicked, onViewProfile },
+) => (
   <div>
     <div className="Players-header">
       <PlayerSearch

@@ -10,8 +10,8 @@ export default class PlayersContainer extends Component {
   };
 
   handlePlayerInputChange = (e) => {
-    let searchQuery = e.target.value;
-    if(searchQuery.length > 2) {
+    const searchQuery = e.target.value;
+    if (searchQuery.length > 2) {
       this.setState({
         isLoadingData: true,
         searchData: [],
@@ -24,8 +24,8 @@ export default class PlayersContainer extends Component {
             searchData: response,
           }));
         }).catch((error) => {
-        console.log(error);
-      });
+          console.log(error);
+        });
     }
   };
 
