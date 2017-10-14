@@ -22,7 +22,8 @@ class Players extends Component {
 
   render() {
     const { isLoadingData, playersData } = this.props;
-
+    console.log(this.props.playersData)
+    console.log(this.props.isLoadingData)
     return (
       <div>
         <div className="Players-header">

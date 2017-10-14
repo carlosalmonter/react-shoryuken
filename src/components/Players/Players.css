@@ -17,3 +17,14 @@
     width: 800px;
     display: inline-block;
 }
+
+.Player-image {
+    width: 100px;
+    height: 100px;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: inline-block;
+    margin-left: 50px;
+    float: left;
+}

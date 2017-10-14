@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStore } from 'redux';
+import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
 import reducers from '../reducers';
@@ -8,7 +8,7 @@ import HomeContainer from '../containers/HomeContainer';
 import PlayersContainer from '../containers/PlayersContainer';
 import ProfileContainer from '../containers/ProfileContainer';
 
-const store = createStore(reducers);
+const store = createStore(reducers, compose(window.devToolsExtension ? window.devToolsExtension() : f => f));
 
 const App = () => (
   <Provider store={store}>
