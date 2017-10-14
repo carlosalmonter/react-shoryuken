@@ -5,11 +5,18 @@ import PlayerSearch from './PlayerSearch';
 
 class Players extends Component {
   static propTypes = {
+    playerSearchQuery: PropTypes.string,
     isLoadingData: PropTypes.bool.isRequired,
     playersData: PropTypes.array.isRequired,
     fetchData: PropTypes.func.isRequired,
     onPlayerInputChange: PropTypes.func.isRequired,
   };
+
+  componentDidMount() {
+    if (this.props.playerSearchQuery !== null) {
+      this.props.fetchData(this.props.playerSearchQuery);
+    }
+  }
 
   handlePlayerInputChange = (e) => {
     const searchQuery = e.target.value;
@@ -22,8 +29,6 @@ class Players extends Component {
 
   render() {
     const { isLoadingData, playersData } = this.props;
-    console.log(this.props.playersData)
-    console.log(this.props.isLoadingData)
     return (
       <div>
         <div className="Players-header">

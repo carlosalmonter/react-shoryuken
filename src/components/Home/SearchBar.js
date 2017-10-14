@@ -2,7 +2,7 @@ import React from 'react';
 import { FloatingActionButton, MenuItem, SelectField, TextField } from 'material-ui';
 import SearchIcon from 'material-ui/svg-icons/action/search';
 
-const SearchBar = () => (
+const SearchBar = ({ onSearchButtonClicked }) => (
   <div>
     <div>
       <SelectField
@@ -20,7 +20,7 @@ const SearchBar = () => (
     </div>
     <div>
 
-      <FloatingActionButton secondary >
+      <FloatingActionButton secondary onClick={onSearchButtonClicked} >
         <SearchIcon />
       </FloatingActionButton>
     </div>

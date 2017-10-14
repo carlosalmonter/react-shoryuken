@@ -7,7 +7,7 @@ import {
   FETCH_PLAYERS_DATA_FAILED,
 } from '../actions';
 
-const initialState = { playersData: [], isLoadingData: false };
+const initialState = { playerSearchQuery: null, playersData: [], isLoadingData: false };
 
 const players = (currentState = initialState, action) => {
   switch (action.type) {

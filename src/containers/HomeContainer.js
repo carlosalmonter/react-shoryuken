@@ -1,11 +1,12 @@
-import React, { Component } from 'react';
-// import { connect } from 'react-redux';
+import { connect } from 'react-redux';
 import Home from '../components/Home/Home';
 
-export default class HomeContainer extends Component {
-  render() {
-    return (
-      <Home />
-    );
-  }
-}
+import { playersActions } from '../actions';
+
+const mapStateToProps = ({ players }) => players;
+const mapDispatchToProps = dispatch => ({
+  fetchData: searchString => playersActions.fetchData(dispatch, searchString),
+  onPlayerInputChange: searchString => dispatch(playersActions.searchDataUpdated(searchString)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);

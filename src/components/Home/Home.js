@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import './Home.css';
 
-const Home = () => (
-  <div>
-    <div className="Home-header">
-      <SearchBar />
-    </div>
-  </div>
-);
+class Home extends Component {
+  handleSearchButtonClicked = (e) => {
+    console.log(e);
+  };
+  render() {
+    return (
+      <div>
+        <div className="Home-header">
+          <SearchBar
+            onSearchButtonClicked={this.handleSearchButtonClicked}
+          />
+        </div>
+      </div>
+    );
+  }
+}
 
 export default Home;
