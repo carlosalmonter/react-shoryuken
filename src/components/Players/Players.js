@@ -13,7 +13,7 @@ class Players extends Component {
   };
 
   componentDidMount() {
-    if (this.props.playerSearchQuery !== null) {
+    if (this.props.playerSearchQuery !== '') {
       this.props.fetchData(this.props.playerSearchQuery);
     }
   }

@@ -5,8 +5,7 @@ import { playersActions } from '../actions';
 
 const mapStateToProps = ({ players }) => players;
 const mapDispatchToProps = dispatch => ({
-  fetchData: searchString => playersActions.fetchData(dispatch, searchString),
-  onPlayerInputChange: searchString => dispatch(playersActions.searchDataUpdated(searchString)),
+  onSearchStringChanged: e => playersActions.onSearchStringChanged(dispatch, e.target.value),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

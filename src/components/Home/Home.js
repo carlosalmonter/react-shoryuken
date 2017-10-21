@@ -3,15 +3,22 @@ import SearchBar from './SearchBar';
 import './Home.css';
 
 class Home extends Component {
-  handleSearchButtonClicked = (e) => {
-    console.log(e);
+  state = {
+    searchType: 'players',
+  };
+  handleSearchTypeChanged = (event, index, value) => {
+    this.setState(() => ({
+      searchType: value,
+    }));
   };
   render() {
     return (
       <div>
         <div className="Home-header">
           <SearchBar
-            onSearchButtonClicked={this.handleSearchButtonClicked}
+            onSearchTypeChanged={this.handleSearchTypeChanged}
+            onSearchStringChanged={this.props.onSearchStringChanged}
+            searchType={this.state.searchType}
           />
         </div>
       </div>
