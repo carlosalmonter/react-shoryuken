@@ -4,10 +4,14 @@ import PlayersResults from './PlayersResults';
 import PlayerSearch from './PlayerSearch';
 
 class Players extends Component {
+  static defaultProps = {
+    playerSearchQuery: '',
+    playersData: [],
+  };
   static propTypes = {
     playerSearchQuery: PropTypes.string,
     isLoadingData: PropTypes.bool.isRequired,
-    playersData: PropTypes.array.isRequired,
+    playersData: PropTypes.arrayOf(PropTypes.shape()),
     fetchData: PropTypes.func.isRequired,
     onPlayerInputChange: PropTypes.func.isRequired,
   };

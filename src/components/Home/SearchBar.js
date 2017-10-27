@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FloatingActionButton, MenuItem, SelectField, TextField } from 'material-ui';
 import SearchIcon from 'material-ui/svg-icons/action/search';
@@ -30,5 +31,11 @@ const SearchBar = ({ onSearchTypeChanged, onSearchStringChanged, searchType }) =
     </div>
   </div>
 );
+
+SearchBar.propTypes = {
+  onSearchTypeChanged: PropTypes.func.isRequired,
+  onSearchStringChanged: PropTypes.func.isRequired,
+  searchType: PropTypes.string.isRequired,
+};
 
 export default SearchBar;

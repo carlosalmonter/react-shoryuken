@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Paper } from 'material-ui';
 import './Profile.css';
 
@@ -40,5 +41,10 @@ const Profile = ({ playerData, characterBackgroundUrl }) => (
     </div>
   </Paper>
 );
+
+Profile.propTypes = {
+  playerData: PropTypes.shape().isRequired,
+  characterBackgroundUrl: PropTypes.string.isRequired,
+};
 
 export default Profile;

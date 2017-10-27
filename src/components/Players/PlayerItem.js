@@ -1,11 +1,11 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Paper, RaisedButton } from 'material-ui';
 import { Link } from 'react-router-dom';
 import './Players.css';
 
-const getPlayerBackground = () => {
-  return 'https://capcomprotour.com/wp-content/themes/foundation/images/bg-player-ken.jpg';
-};
+const getPlayerBackground = () => 'https://capcomprotour.com/wp-content/themes/foundation/images/bg-player-ken.jpg';
+
 const PlayerItem = ({ playerData, onViewProfile }) => (
   <div
     className="Player-item-container"
@@ -35,5 +35,10 @@ const PlayerItem = ({ playerData, onViewProfile }) => (
     </Paper>
   </div>
 );
+
+PlayerItem.propTypes = {
+  playerData: PropTypes.shape().isRequired,
+  onViewProfile: PropTypes.func.isRequired,
+};
 
 export default PlayerItem;

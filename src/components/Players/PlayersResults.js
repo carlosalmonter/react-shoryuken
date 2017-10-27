@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import PlayerItem from './PlayerItem';
 import './Players.css';
 
@@ -13,5 +14,11 @@ const PlayersResults = ({ isLoadingData, playersData, onViewProfile }) => (
       )) }
   </div>
 );
+
+PlayersResults.propTypes = {
+  isLoadingData: PropTypes.bool.isRequired,
+  playersData: PropTypes.shape().isRequired,
+  onViewProfile: PropTypes.func.isRequired,
+};
 
 export default PlayersResults;

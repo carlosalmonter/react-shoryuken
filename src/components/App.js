@@ -8,7 +8,10 @@ import HomeContainer from '../containers/HomeContainer';
 import PlayersContainer from '../containers/PlayersContainer';
 import ProfileContainer from '../containers/ProfileContainer';
 
-const store = createStore(reducers, compose(window.devToolsExtension ? window.devToolsExtension() : f => f));
+const store = createStore(
+  reducers,
+  compose(window.devToolsExtension ? window.devToolsExtension() : f => f),
+);
 
 const App = () => (
   <Provider store={store}>

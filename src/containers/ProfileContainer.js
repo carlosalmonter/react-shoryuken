@@ -3,6 +3,10 @@ import { getPlayer } from '../utils/Api';
 import Profile from '../components/Profile/Profile';
 
 export default class ProfileContainer extends Component {
+  static propTypes = {
+    match: PropTypes.shape().isRequired,
+  };
+
   state = {
     playerData: null,
     characterBackground: '',

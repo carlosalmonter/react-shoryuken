@@ -34,7 +34,7 @@ const Main = ({ children }) => {
 };
 
 Main.propTypes = {
-  children: PropTypes.object.isRequired,
+  children: PropTypes.shape().isRequired,
 };
 
 export default Main;
