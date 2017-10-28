@@ -4,16 +4,9 @@ import { Paper, RaisedButton } from 'material-ui';
 import { Link } from 'react-router-dom';
 import './Players.css';
 
-const getPlayerBackground = () => 'https://capcomprotour.com/wp-content/themes/foundation/images/bg-player-ken.jpg';
-
 const PlayerItem = ({ playerData, onViewProfile }) => (
   <div
     className="Player-item-container"
-    style={
-      {
-        backgroundImage: `url(${getPlayerBackground()})`,
-      }
-    }
   >
     <Paper className="Player-item">
       <Paper

@@ -7,6 +7,7 @@ import Main from './Main/Main';
 import HomeContainer from '../containers/HomeContainer';
 import PlayersContainer from '../containers/PlayersContainer';
 import ProfileContainer from '../containers/ProfileContainer';
+import RankingContainer from '../containers/RankingContainer';
 
 const store = createStore(
   reducers,
@@ -20,6 +21,8 @@ const App = () => (
         <Route exact path="/" component={HomeContainer} />
         <Route exact path="/players" component={PlayersContainer} />
         <Route exact path="/players/:id" component={ProfileContainer} />
+        <Route exact path="/players/:id" component={ProfileContainer} />
+        <Route exact path="/rankings" component={RankingContainer} />
       </Switch>
     </Main>
   </Provider>

@@ -19,6 +19,9 @@ const Navigation = () => (
       <span>
         <Link to="/tournaments">Tournaments</Link>
       </span>
+      <span>
+        <Link to="/rankings">CPT Ranking</Link>
+      </span>
     </div>
   </div>
 );

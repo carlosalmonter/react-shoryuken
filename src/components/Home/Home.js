@@ -18,13 +18,17 @@ class Home extends Component {
     }));
   };
 
+  handleSearchStringChanged = (e) => {
+    this.props.onSearchStringChanged(e.target.value);
+  };
+
   render() {
     return (
       <div>
         <div className="Home-header">
           <SearchBar
             onSearchTypeChanged={this.handleSearchTypeChanged}
-            onSearchStringChanged={this.props.onSearchStringChanged}
+            onSearchStringChanged={this.handleSearchStringChanged}
             searchType={this.state.searchType}
           />
         </div>

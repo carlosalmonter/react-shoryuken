@@ -7,8 +7,10 @@ const get = uri => fetch(`${proxyUrl}${apiUrl}${uri}`)
 
 export const searchPlayer = query => get(`search?type=player&query=${query}`);
 export const getPlayer = id => get(`player/id/${id}`);
+export const getCPTRanking = () => get('top?cpt=true&size=30&format=json');
 
 export default {
   searchPlayer,
   getPlayer,
+  getCPTRanking,
 };
