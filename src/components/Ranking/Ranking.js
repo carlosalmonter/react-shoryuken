@@ -6,7 +6,7 @@ import RankingItem from './RankingItem';
 class Ranking extends Component {
   static propTypes = {
     isLoadingData: PropTypes.bool.isRequired,
-    cptRankingData: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+    cptRankingData: PropTypes.arrayOf(PropTypes.object).isRequired,
     fetchCPTRankingData: PropTypes.func.isRequired,
   };
 
@@ -15,8 +15,7 @@ class Ranking extends Component {
   }
 
   getCharacterBackground = (itemData) => {
-    const regex = new RegExp('SF5_');
-    const characterName = itemData.character[0].replace(regex, '');
+    const characterName = itemData.character[0].replace('SF5_', '');
     return `https://capcomprotour.com/wp-content/themes/foundation/images/bg-player-${characterName.toLowerCase()}.jpg`;
   };
 
