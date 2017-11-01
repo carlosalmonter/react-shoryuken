@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Paper } from 'material-ui';
 import './Profile.css';
+import config from '../../config/config';
 
 const Profile = ({ playerData, characterBackgroundUrl }) => (
   <Paper
@@ -18,7 +19,7 @@ const Profile = ({ playerData, characterBackgroundUrl }) => (
         circle
         style={
           {
-            backgroundImage: `url(https://s3.amazonaws.com/srkranking/images/${playerData.name.replace(/\s+/g, '_').toLowerCase()}.jpg), url(https://s3.amazonaws.com/srkranking/images/${playerData.name.replace(/\s+/g, '_').toLowerCase()}.png)`,
+            backgroundImage: `url(${config.PLAYER_PROFILE_IMAGE_PATH}${playerData.name.replace(/\s+/g, '_').toLowerCase()}.jpg), url(${config.PLAYER_PROFILE_IMAGE_PATH}${playerData.name.replace(/\s+/g, '_').toLowerCase()}.png)`,
           }
         }
       />

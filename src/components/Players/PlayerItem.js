@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Paper, RaisedButton } from 'material-ui';
 import { Link } from 'react-router-dom';
 import './Players.css';
+import config from '../../config/config';
 
 const PlayerItem = ({ playerData, onViewProfile }) => (
   <div
@@ -14,7 +15,7 @@ const PlayerItem = ({ playerData, onViewProfile }) => (
         circle
         style={
           {
-            backgroundImage: `url(https://s3.amazonaws.com/srkranking/images/${playerData.name.replace(/\s+/, '_').toLowerCase()}.jpg), url(https://s3.amazonaws.com/srkranking/images/${playerData.name.replace(/\s+/, '_').toLowerCase()}.png), url(https://capcomprotour.com/wp-content/uploads/2014/02/capcom-pt-logo.png)`,
+            backgroundImage: `url(${config.PLAYER_PROFILE_IMAGE_PATH}${playerData.name.replace(/\s+/, '_').toLowerCase()}.jpg), url(${config.PLAYER_PROFILE_IMAGE_PATH}${playerData.name.replace(/\s+/, '_').toLowerCase()}.png)`,
           }
         }
       />

@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Paper } from 'material-ui';
 import './Ranking.css';
+import config from '../../config/config';
 
 const RankingItem = ({ itemData, characterBackgroundUrl }) => (
   <div
@@ -24,7 +25,7 @@ const RankingItem = ({ itemData, characterBackgroundUrl }) => (
         circle
         style={
           {
-            backgroundImage: `url(https://s3.amazonaws.com/srkranking/images/${itemData.name.replace(/\s+/, '_').toLowerCase()}.jpg), url(https://s3.amazonaws.com/srkranking/images/${itemData.name.replace(/\s+/, '_').toLowerCase()}.png)`,
+            backgroundImage: `url(${config.PLAYER_PROFILE_IMAGE_PATH}${itemData.name.replace(/\s+/, '_').toLowerCase()}.jpg), url(${config.PLAYER_PROFILE_IMAGE_PATH}${itemData.name.replace(/\s+/, '_').toLowerCase()}.png)`,
           }
         }
       />

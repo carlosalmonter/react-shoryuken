@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { getPlayer } from '../utils/Api';
 import Profile from '../components/Profile/Profile';
+import config from '../config/config';
 
 export default class ProfileContainer extends Component {
   static propTypes = {
@@ -27,7 +28,7 @@ export default class ProfileContainer extends Component {
   getCharacterBackground = (playerData) => {
     const regex = new RegExp(`${playerData.mainGame}_`);
     const characterName = playerData.rankings[playerData.mainGame].main[0].replace(regex, '');
-    return `https://capcomprotour.com/wp-content/themes/foundation/images/bg-player-${characterName.toLowerCase()}.jpg`;
+    return `${config.CPT_BACKGROUND_CHARACTER_IMAGE_URL}${characterName.toLowerCase()}.jpg`;
   };
 
   render() {

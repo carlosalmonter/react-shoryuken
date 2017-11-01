@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import RankingItem from './RankingItem';
+import config from '../../config/config';
 
 class Ranking extends Component {
   static propTypes = {
@@ -15,8 +16,8 @@ class Ranking extends Component {
   }
 
   getCharacterBackground = (itemData) => {
-    const characterName = itemData.character[0].replace('SF5_', '');
-    return `https://capcomprotour.com/wp-content/themes/foundation/images/bg-player-${characterName.toLowerCase()}.jpg`;
+    const characterName = itemData.character[0].replace(config.MAIN_GAME, '');
+    return `${config.CPT_BACKGROUND_CHARACTER_IMAGE_URL}${characterName.toLowerCase()}.jpg`;
   };
 
   render() {

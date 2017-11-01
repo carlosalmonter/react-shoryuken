@@ -17,7 +17,7 @@ const PlayersResults = ({ isLoadingData, playersData, onViewProfile }) => (
 
 PlayersResults.propTypes = {
   isLoadingData: PropTypes.bool.isRequired,
-  playersData: PropTypes.shape().isRequired,
+  playersData: PropTypes.arrayOf(PropTypes.object).isRequired,
   onViewProfile: PropTypes.func.isRequired,
 };
 

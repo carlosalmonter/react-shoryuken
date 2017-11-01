@@ -5,16 +5,17 @@ import { BrowserRouter } from 'react-router-dom';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Navigation from '../Navigation/Navigation';
 import './Main.css';
+import colors from '../../config/colors';
 
 const Main = ({ children }) => {
   const muiTheme = getMuiTheme({
     palette: {
-      primary1Color: '#fff',
-      secondaryColor: '#fff',
-      primaryTextColor: '#00B2A7A70',
-      secondaryTextColor: '#B2A7A7',
-      accent1Color: '#555',
-      textColor: '#B2A7A7',
+      primary1Color: colors.WHITE,
+      secondaryColor: colors.WHITE,
+      primaryTextColor: colors.DARKER_GRAY,
+      secondaryTextColor: colors.LIGHT_GRAY,
+      accent1Color: colors.DARK_GRAY,
+      textColor: colors.LIGHT_GRAY,
     },
   });
   return (

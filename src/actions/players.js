@@ -10,7 +10,7 @@ export const playersActions = {
   fetchData(dispatch, queryString) {
     dispatch({
       type: FETCH_PLAYERS_DATA_STARTED,
-      payload: '',
+      payload: {},
     });
 
     return searchPlayer(queryString)
