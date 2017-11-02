@@ -10,6 +10,7 @@ const initialState = {
   playerSearchQuery: config.EMPTY_STRING,
   playersData: [],
   isLoadingData: false,
+  isLoadingError: false,
 };
 
 const players = (currentState = initialState, action) => {
@@ -20,15 +21,22 @@ const players = (currentState = initialState, action) => {
         playersData: [],
         isLoadingData: true,
         playerSearchQuery: config.EMPTY_STRING,
+        isLoadingError: false,
       };
     case FETCH_PLAYERS_DATA_COMPLETED:
       return {
+        ...currentState,
         isLoadingData: false,
         playersData: action.payload,
         playerSearchQuery: config.EMPTY_STRING,
       };
     case FETCH_PLAYERS_DATA_FAILED:
-      return { isLoadingData: false, playersData: [], playerSearchQuery: config.EMPTY_STRING };
+      return {
+        isLoadingData: false,
+        playersData: [],
+        playerSearchQuery: config.EMPTY_STRING,
+        isLoadingError: action.isError,
+      };
     case HOME_PLAYER_QUERY_UPDATED:
       return { ...currentState, playerSearchQuery: action.payload };
     default:

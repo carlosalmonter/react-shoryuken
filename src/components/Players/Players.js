@@ -12,6 +12,7 @@ class Players extends Component {
   static propTypes = {
     playerSearchQuery: PropTypes.string,
     isLoadingData: PropTypes.bool.isRequired,
+    isLoadingError: PropTypes.bool.isRequired,
     playersData: PropTypes.arrayOf(PropTypes.object),
     fetchData: PropTypes.func.isRequired,
     onPlayerInputChange: PropTypes.func.isRequired,
@@ -33,7 +34,7 @@ class Players extends Component {
   };
 
   render() {
-    const { isLoadingData, playersData } = this.props;
+    const { isLoadingData, playersData, isLoadingError } = this.props;
     return (
       <div>
         <div className="Players-header">
@@ -42,6 +43,7 @@ class Players extends Component {
           />
           <PlayersResults
             isLoadingData={isLoadingData}
+            isLoadingError={isLoadingError}
             playersData={playersData}
           />
         </div>

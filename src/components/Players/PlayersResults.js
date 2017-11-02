@@ -3,13 +3,14 @@ import PropTypes from 'prop-types';
 import PlayerItem from './PlayerItem';
 import './Players.css';
 
-const PlayersResults = ({ isLoadingData, playersData, onViewProfile }) => (
+const PlayersResults = ({ isLoadingData, isLoadingError, playersData }) => (
   <div className="Player-results">
     { isLoadingData && 'Loading...'}
+    { isLoadingError && 'An Error Occurred While Getting the Data!'}
     {
       playersData.map(playerData => (
         <div key={playerData.id}>
-          <PlayerItem playerData={playerData} onViewProfile={onViewProfile} />
+          <PlayerItem playerData={playerData} />
         </div>
       )) }
   </div>
@@ -17,8 +18,8 @@ const PlayersResults = ({ isLoadingData, playersData, onViewProfile }) => (
 
 PlayersResults.propTypes = {
   isLoadingData: PropTypes.bool.isRequired,
+  isLoadingError: PropTypes.bool.isRequired,
   playersData: PropTypes.arrayOf(PropTypes.object).isRequired,
-  onViewProfile: PropTypes.func.isRequired,
 };
 
 export default PlayersResults;

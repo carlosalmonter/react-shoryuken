@@ -1,51 +1,47 @@
-import React from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Paper } from 'material-ui';
-import './Profile.css';
+import ProfileDetails from './ProfileDetails';
+import { getPlayer } from '../../utils/Api';
 import config from '../../config/config';
 
-const Profile = ({ playerData, characterBackgroundUrl }) => (
-  <Paper
-    className="Profile-container"
-    style={
-      {
-        backgroundImage: `url(${characterBackgroundUrl})`,
-      }
-    }
-  >
-    <div className="Profile-inner-container">
-      <Paper
-        className="Profile-image"
-        circle
-        style={
-          {
-            backgroundImage: `url(${config.PLAYER_PROFILE_IMAGE_PATH}${playerData.name.replace(/\s+/g, '_').toLowerCase()}.jpg), url(${config.PLAYER_PROFILE_IMAGE_PATH}${playerData.name.replace(/\s+/g, '_').toLowerCase()}.png)`,
-          }
+export default class Profile extends Component {
+  static propTypes = {
+    match: PropTypes.shape().isRequired,
+  };
+
+  state = {
+    playerData: null,
+    characterBackground: '',
+  };
+
+  componentDidMount() {
+    getPlayer(this.props.match.params.id)
+      .then((response) => {
+        this.setState(() => ({
+          playerData: response,
+          characterBackground: this.getCharacterBackground(response),
+        }));
+      }).catch((error) => {
+        console.log(error);
+      });
+  }
+  getCharacterBackground = (playerData) => {
+    const regex = new RegExp(`${playerData.mainGame}_`);
+    const characterName = playerData.rankings[playerData.mainGame].main[0].replace(regex, '');
+    return `${config.CPT_BACKGROUND_CHARACTER_IMAGE_URL}${characterName.toLowerCase()}.jpg`;
+  };
+
+  render() {
+    return (
+      <div>
+        {
+          this.state.playerData &&
+          <ProfileDetails
+            playerData={this.state.playerData}
+            characterBackgroundUrl={this.state.characterBackground}
+          />
         }
-      />
-      <div className="Profile-info">
-        <div>
-          <h1>
-            {playerData.name}
-          </h1>
-        </div>
-        <div>
-          Real Name: {playerData.realname ? playerData.realname : 'N/A'}
-        </div>
-        <div>
-            Country: {playerData.country}
-        </div>
-        <div>
-          CPT Score/Rank: {playerData.cptScore}/{playerData.cptRank}
-        </div>
       </div>
-    </div>
-  </Paper>
-);
-
-Profile.propTypes = {
-  playerData: PropTypes.shape().isRequired,
-  characterBackgroundUrl: PropTypes.string.isRequired,
-};
-
-export default Profile;
+    );
+  }
+}

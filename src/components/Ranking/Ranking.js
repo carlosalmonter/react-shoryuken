@@ -7,6 +7,7 @@ import config from '../../config/config';
 class Ranking extends Component {
   static propTypes = {
     isLoadingData: PropTypes.bool.isRequired,
+    isLoadingError: PropTypes.bool.isRequired,
     cptRankingData: PropTypes.arrayOf(PropTypes.object).isRequired,
     fetchCPTRankingData: PropTypes.func.isRequired,
   };
@@ -21,7 +22,7 @@ class Ranking extends Component {
   };
 
   render() {
-    const { isLoadingData, cptRankingData } = this.props;
+    const { isLoadingData, cptRankingData, isLoadingError } = this.props;
     return (
       <div>
         <div className="Ranking-container">
@@ -30,6 +31,7 @@ class Ranking extends Component {
           </div>
           <div className="Ranking-results">
             { isLoadingData && 'Loading...'}
+            { isLoadingError && 'An Error Occurred While Getting the Data!'}
             {
               cptRankingData.map(itemData => (
                 <Link key={itemData.id} to={`/players/${itemData.id}`}>

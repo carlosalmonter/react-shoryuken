@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import './Players.css';
 import config from '../../config/config';
 
-const PlayerItem = ({ playerData, onViewProfile }) => (
+const PlayerItem = ({ playerData }) => (
   <div
     className="Player-item-container"
   >
@@ -23,7 +23,7 @@ const PlayerItem = ({ playerData, onViewProfile }) => (
       <div>Country: { playerData.country }</div>
       <div>
         <Link to={`/players/${playerData.id}`}>
-          <RaisedButton label="View Profile" onClick={onViewProfile} />
+          <RaisedButton label="View Profile" />
         </Link>
       </div>
     </Paper>
@@ -32,7 +32,6 @@ const PlayerItem = ({ playerData, onViewProfile }) => (
 
 PlayerItem.propTypes = {
   playerData: PropTypes.shape().isRequired,
-  onViewProfile: PropTypes.func.isRequired,
 };
 
 export default PlayerItem;

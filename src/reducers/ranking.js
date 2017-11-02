@@ -4,16 +4,20 @@ import {
   FETCH_RANKING_DATA_FAILED,
 } from '../actions/ranking';
 
-const initialState = { cptRankingData: [], isLoadingData: false };
+const initialState = {
+  cptRankingData: [],
+  isLoadingData: false,
+  isLoadingError: false,
+};
 
 const ranking = (currentState = initialState, action) => {
   switch (action.type) {
     case FETCH_RANKING_DATA_STARTED:
-      return { cptRankingData: [], isLoadingData: true };
+      return { cptRankingData: [], isLoadingData: true, isLoadingError: false };
     case FETCH_RANKING_DATA_COMPLETED:
-      return { isLoadingData: false, cptRankingData: action.payload };
+      return { ...currentState, isLoadingData: false, cptRankingData: action.payload };
     case FETCH_RANKING_DATA_FAILED:
-      return { isLoadingData: false, cptRankingData: [] };
+      return { isLoadingData: false, cptRankingData: [], isLoadingError: action.isError };
     default:
       return currentState;
   }
