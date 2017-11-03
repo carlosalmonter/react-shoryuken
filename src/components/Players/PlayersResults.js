@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { CircularProgress } from 'material-ui';
 import PlayerItem from './PlayerItem';
 import './Players.css';
+import colors from '../../config/colors';
 
 const PlayersResults = ({ isLoadingData, isLoadingError, playersData }) => (
   <div className="Player-results">
-    { isLoadingData && 'Loading...'}
+    { isLoadingData && <CircularProgress color={colors.BLACK} />}
     { isLoadingError && 'An Error Occurred While Getting the Data!'}
     {
       playersData.map(playerData => (

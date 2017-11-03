@@ -1,28 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { CircularProgress } from 'material-ui';
 import ProfileDetails from './ProfileDetails';
-import { getPlayer } from '../../utils/Api';
 import config from '../../config/config';
+import colors from '../../config/colors';
 
 export default class Profile extends Component {
   static propTypes = {
     match: PropTypes.shape().isRequired,
+    fetchProfileData: PropTypes.func.isRequired,
+    profileData: PropTypes.shape().isRequired,
+    isLoadingData: PropTypes.bool.isRequired,
+    isLoadingError: PropTypes.bool.isRequired,
   };
 
   state = {
-    playerData: null,
     characterBackground: '',
   };
 
   componentDidMount() {
-    getPlayer(this.props.match.params.id)
-      .then((response) => {
+    this.props.fetchProfileData(this.props.match.params.id)
+      .then(() => {
         this.setState(() => ({
-          playerData: response,
-          characterBackground: this.getCharacterBackground(response),
+          characterBackground: this.getCharacterBackground(this.props.profileData),
         }));
-      }).catch((error) => {
-        console.log(error);
       });
   }
   getCharacterBackground = (playerData) => {
@@ -32,12 +33,15 @@ export default class Profile extends Component {
   };
 
   render() {
+    const { isLoadingData, profileData, isLoadingError } = this.props;
     return (
       <div>
+        { isLoadingData && <CircularProgress color={colors.BLACK} />}
+        { isLoadingError && 'An Error Occurred While Getting the Data!'}
         {
-          this.state.playerData &&
+          !isLoadingData &&
           <ProfileDetails
-            playerData={this.state.playerData}
+            playerData={profileData}
             characterBackgroundUrl={this.state.characterBackground}
           />
         }

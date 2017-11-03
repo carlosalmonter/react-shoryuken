@@ -22,6 +22,16 @@ const playerFetchFailed = err => ({
   payload: err,
 });
 
+const updateSearchData = searchString => ({
+  type: PLAYERS_SEARCH_DATA_UPDATED,
+  payload: searchString,
+});
+
+const searchStringChanged = queryString => ({
+  type: HOME_PLAYER_QUERY_UPDATED,
+  payload: queryString,
+});
+
 export const playersActions = {
   fetchData(dispatch, queryString) {
     dispatch(initPlayersFetch());
@@ -30,14 +40,8 @@ export const playersActions = {
       .then(data => dispatch(fetchPlayers(data)))
       .catch(err => dispatch(playerFetchFailed(err)));
   },
-  searchDataUpdated: searchString => ({
-    type: PLAYERS_SEARCH_DATA_UPDATED,
-    payload: searchString,
-  }),
+  searchDataUpdated: searchString => updateSearchData(searchString),
   onSearchStringChanged(dispatch, queryString) {
-    dispatch({
-      type: HOME_PLAYER_QUERY_UPDATED,
-      payload: queryString,
-    });
+    dispatch(searchStringChanged(queryString));
   },
 };

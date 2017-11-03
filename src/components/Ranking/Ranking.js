@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { CircularProgress } from 'material-ui';
 import RankingItem from './RankingItem';
 import config from '../../config/config';
+import colors from '../../config/colors';
 
 class Ranking extends Component {
   static propTypes = {
@@ -30,7 +32,7 @@ class Ranking extends Component {
             <h1>CPT RANKING</h1>
           </div>
           <div className="Ranking-results">
-            { isLoadingData && 'Loading...'}
+            { isLoadingData && <CircularProgress color={colors.BLACK} /> }
             { isLoadingError && 'An Error Occurred While Getting the Data!'}
             {
               cptRankingData.map(itemData => (
