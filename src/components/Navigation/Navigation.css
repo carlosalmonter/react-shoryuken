@@ -1,11 +1,11 @@
-.Navigation {
+.navigation {
     color: #B2A7A7;
     background-color: #000;
     width: 100%;
     height: 100px;
 }
 
-.Navigation-logo {
+.navigation__logo {
     display: inline-block;
     position: relative;
     left: 15px;
@@ -14,7 +14,7 @@
     margin-left: 5%;
 }
 
-.Navigation-links {
+.navigation__links {
     display: inline-block;
     position: relative;
     right: 15px;
@@ -23,15 +23,15 @@
     margin-right: 5%;
 }
 
-.Navigation-links a {
+.navigation__links a {
     text-decoration: none;
     color: #B2A7A7;
 }
 
-.Navigation-links span {
+.navigation__links span {
     margin-right: 20px;
 }
 
-.Navigation-links a:hover {
+.navigation__links a:hover {
     color: #fff;
 }

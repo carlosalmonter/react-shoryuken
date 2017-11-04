@@ -19,8 +19,8 @@ const Main = ({ children }) => {
     },
   });
   return (
-    <div className="App">
-      <div className="App-intro">
+    <div className="app">
+      <div className="app__container">
         <BrowserRouter>
           <MuiThemeProvider muiTheme={muiTheme}>
             <div>

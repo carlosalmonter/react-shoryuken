@@ -26,6 +26,12 @@ export default class Profile extends Component {
         }));
       });
   }
+
+  /**
+   * Returns the player's main character background url
+   * @param playerData
+   * @returns {string}
+   */
   getCharacterBackground = (playerData) => {
     const regex = new RegExp(`${playerData.mainGame}_`);
     const characterName = playerData.rankings[playerData.mainGame].main[0].replace(regex, '');
@@ -37,7 +43,7 @@ export default class Profile extends Component {
     return (
       <div>
         { isLoadingData && <CircularProgress color={colors.BLACK} />}
-        { isLoadingError && 'An Error Occurred While Getting the Data!'}
+        { isLoadingError && config.LOADING_ERROR_MESSAGE}
         {
           !isLoadingData &&
           <ProfileDetails

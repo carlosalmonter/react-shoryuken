@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import './Navigation.css';
 
 const Navigation = () => (
-  <div className="Navigation">
-    <div className="Navigation-logo">
+  <div className="navigation">
+    <div className="navigation__logo">
       <h1>
         React Shoryuken
       </h1>
     </div>
-    <div className="Navigation-links">
+    <div className="navigation__links">
       <span>
         <Link to="/">Home</Link>
       </span>

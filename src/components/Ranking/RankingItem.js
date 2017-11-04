@@ -6,22 +6,22 @@ import config from '../../config/config';
 
 const RankingItem = ({ itemData, characterBackgroundUrl }) => (
   <div
-    className="Ranking-item-container"
+    className="ranking__item__container"
   >
-    <div className="Ranking-item-overlay" />
+    <div className="ranking__item__overlay" />
     <Paper
-      className="Ranking-item"
+      className="ranking__item"
       style={
         {
           backgroundImage: `url(${characterBackgroundUrl})`,
         }
       }
     >
-      <div className="Player-rank">
+      <div className="player__rank">
         {itemData.cptRank}
       </div>
       <Paper
-        className="Player-image"
+        className="player__image"
         circle
         style={
           {
@@ -29,8 +29,8 @@ const RankingItem = ({ itemData, characterBackgroundUrl }) => (
           }
         }
       />
-      <div className="Ranking-name"><h1>{ itemData.name }</h1></div>
-      <div className="Ranking-points">
+      <div className="ranking__name"><h1>{ itemData.name }</h1></div>
+      <div className="ranking__points">
         <h3>Points</h3>
         <p>{ itemData.cptScore }</p>
       </div>

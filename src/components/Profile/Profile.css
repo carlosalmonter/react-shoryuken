@@ -1,4 +1,4 @@
-.Profile-image {
+.profile__image {
   width: 200px;
   height: 200px;
   background-size: 100%;
@@ -9,7 +9,7 @@
   float: left;
 }
 
-.Profile-info {
+.profile__info {
   display: inline-block;
   float: left;
   margin-top: 50px;
@@ -17,12 +17,12 @@
   color: white;
 }
 
-.Profile-inner-container {
+.profile--inner__container {
   width: 80%;
   display: inline-block;
 }
 
-.Profile-container {
+.profile__container {
   display: inline-block;
   width: 100%;
   height: 380px;

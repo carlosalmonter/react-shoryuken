@@ -7,11 +7,11 @@ import config from '../../config/config';
 
 const PlayerItem = ({ playerData }) => (
   <div
-    className="Player-item-container"
+    className="player__item__container"
   >
-    <Paper className="Player-item">
+    <Paper className="player__item">
       <Paper
-        className="Player-image"
+        className="player__image"
         circle
         style={
           {

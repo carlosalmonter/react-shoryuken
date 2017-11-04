@@ -4,11 +4,12 @@ import { CircularProgress } from 'material-ui';
 import PlayerItem from './PlayerItem';
 import './Players.css';
 import colors from '../../config/colors';
+import config from '../../config/config';
 
 const PlayersResults = ({ isLoadingData, isLoadingError, playersData }) => (
-  <div className="Player-results">
+  <div className="player__results">
     { isLoadingData && <CircularProgress color={colors.BLACK} />}
-    { isLoadingError && 'An Error Occurred While Getting the Data!'}
+    { isLoadingError && config.LOADING_ERROR_MESSAGE}
     {
       playersData.map(playerData => (
         <div key={playerData.id}>

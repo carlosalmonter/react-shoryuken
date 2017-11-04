@@ -18,6 +18,11 @@ class Ranking extends Component {
     this.props.fetchCPTRankingData();
   }
 
+  /**
+   * Returns the player's main character background url
+   * @param itemData
+   * @returns {string}
+   */
   getCharacterBackground = (itemData) => {
     const characterName = itemData.character[0].replace(config.MAIN_GAME, '');
     return `${config.CPT_BACKGROUND_CHARACTER_IMAGE_URL}${characterName.toLowerCase()}.jpg`;
@@ -27,13 +32,13 @@ class Ranking extends Component {
     const { isLoadingData, cptRankingData, isLoadingError } = this.props;
     return (
       <div>
-        <div className="Ranking-container">
+        <div className="ranking__container">
           <div>
             <h1>CPT RANKING</h1>
           </div>
-          <div className="Ranking-results">
+          <div className="ranking__results">
             { isLoadingData && <CircularProgress color={colors.BLACK} /> }
-            { isLoadingError && 'An Error Occurred While Getting the Data!'}
+            { isLoadingError && config.LOADING_ERROR_MESSAGE}
             {
               cptRankingData.map(itemData => (
                 <Link key={itemData.id} to={`/players/${itemData.id}`}>

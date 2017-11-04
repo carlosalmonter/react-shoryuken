@@ -12,12 +12,22 @@ class Home extends Component {
     searchType: 'players',
   };
 
+  /**
+   * Sets the searchType state when its changed
+   * @param event
+   * @param index
+   * @param value
+   */
   handleSearchTypeChanged = (event, index, value) => {
     this.setState(() => ({
       searchType: value,
     }));
   };
 
+  /**
+   * Stores the search string value when it changes on the input
+   * @param e
+   */
   handleSearchStringChanged = (e) => {
     this.props.onSearchStringChanged(e.target.value);
   };
@@ -25,7 +35,7 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <div className="Home-header">
+        <div className="home__header">
           <SearchBar
             onSearchTypeChanged={this.handleSearchTypeChanged}
             onSearchStringChanged={this.handleSearchStringChanged}

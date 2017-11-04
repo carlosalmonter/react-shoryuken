@@ -6,16 +6,16 @@ import config from '../../config/config';
 
 const ProfileDetails = ({ playerData, characterBackgroundUrl }) => (
   <Paper
-    className="Profile-container"
+    className="profile__container"
     style={
       {
         backgroundImage: `url(${characterBackgroundUrl})`,
       }
     }
   >
-    <div className="Profile-inner-container">
+    <div className="profile--inner__container">
       <Paper
-        className="Profile-image"
+        className="profile__image"
         circle
         style={
           {
@@ -23,7 +23,7 @@ const ProfileDetails = ({ playerData, characterBackgroundUrl }) => (
           }
         }
       />
-      <div className="Profile-info">
+      <div className="profile__info">
         <div>
           <h1>
             {playerData.name}

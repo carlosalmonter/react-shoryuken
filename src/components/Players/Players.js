@@ -24,6 +24,10 @@ class Players extends Component {
     }
   }
 
+  /**
+   * Stores the player search string when its modified on the input
+   * @param e
+   */
   handlePlayerInputChange = (e) => {
     const searchQuery = e.target.value;
     this.props.onPlayerInputChange(searchQuery);
@@ -37,7 +41,7 @@ class Players extends Component {
     const { isLoadingData, playersData, isLoadingError } = this.props;
     return (
       <div>
-        <div className="Players-header">
+        <div className="players__header">
           <PlayerSearch
             onPlayerInputChange={this.handlePlayerInputChange}
           />
