@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Paper } from 'material-ui';
 import './Profile.css';
 import config from '../../config/config';
+import withLoading from '../HOC/withLoading';
 
 const ProfileDetails = ({ playerData, characterBackgroundUrl }) => (
   <Paper
@@ -48,4 +49,4 @@ ProfileDetails.propTypes = {
   characterBackgroundUrl: PropTypes.string.isRequired,
 };
 
-export default ProfileDetails;
+export default withLoading(ProfileDetails);

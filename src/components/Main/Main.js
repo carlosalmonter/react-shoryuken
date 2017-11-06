@@ -5,19 +5,10 @@ import { BrowserRouter } from 'react-router-dom';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import Navigation from '../Navigation/Navigation';
 import './Main.css';
-import colors from '../../config/colors';
+import config from '../../config/config';
 
 const Main = ({ children }) => {
-  const muiTheme = getMuiTheme({
-    palette: {
-      primary1Color: colors.WHITE,
-      secondaryColor: colors.WHITE,
-      primaryTextColor: colors.DARKER_GRAY,
-      secondaryTextColor: colors.LIGHT_GRAY,
-      accent1Color: colors.DARK_GRAY,
-      textColor: colors.LIGHT_GRAY,
-    },
-  });
+  const muiTheme = getMuiTheme(config.MUI_THEME_PALETTE);
   return (
     <div className="app">
       <div className="app__container">
@@ -35,7 +26,7 @@ const Main = ({ children }) => {
 };
 
 Main.propTypes = {
-  children: PropTypes.shape().isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default Main;

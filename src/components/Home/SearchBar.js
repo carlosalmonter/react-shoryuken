@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { FloatingActionButton, MenuItem, SelectField, TextField } from 'material-ui';
 import SearchIcon from 'material-ui/svg-icons/action/search';
+import * as _ from 'lodash';
+import config from '../../config/config';
 
 const SearchBar = ({ onSearchTypeChanged, onSearchStringChanged, searchType }) => (
   <div>
@@ -12,8 +14,11 @@ const SearchBar = ({ onSearchTypeChanged, onSearchStringChanged, searchType }) =
         value={searchType}
         onChange={onSearchTypeChanged}
       >
-        <MenuItem value="players" primaryText="Players" />
-        <MenuItem value="tournaments" primaryText="Tournaments" />
+        {
+          config.SEARCH_BAR_SELECT_ITEMS.map(item => (
+            <MenuItem key={item} value={item} primaryText={_.upperFirst(item)} />
+          ))
+        }
       </SelectField>
     </div>
     <div>

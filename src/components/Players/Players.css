@@ -4,11 +4,11 @@
     width: 100%;
 }
 
-.player__item__container {
+.player__item-container {
     margin: 2px 0;
 }
 
-.player__item__container:hover {
+.player__item-container:hover {
     box-shadow: 0 2px 10px 1px rgba(57,73,76,.4), 0 1px 2px rgba(57,73,76,.25);
     background-color: #f2f2f2;
 }

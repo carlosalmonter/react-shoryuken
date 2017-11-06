@@ -1,7 +1,6 @@
-const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
-const apiUrl = 'http://rank.shoryuken.com/api/';
+import config from '../config/config';
 
-const get = uri => fetch(`${proxyUrl}${apiUrl}${uri}`)
+const get = uri => fetch(`${config.PROXY_URL}${config.API_URL}${uri}`)
   .then(response => response.json())
   .then(data => data);
 

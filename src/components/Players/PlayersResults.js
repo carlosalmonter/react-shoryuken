@@ -1,15 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { CircularProgress } from 'material-ui';
 import PlayerItem from './PlayerItem';
 import './Players.css';
-import colors from '../../config/colors';
-import config from '../../config/config';
+import withLoading from '../HOC/withLoading';
 
-const PlayersResults = ({ isLoadingData, isLoadingError, playersData }) => (
+const PlayersResults = ({ playersData }) => (
   <div className="player__results">
-    { isLoadingData && <CircularProgress color={colors.BLACK} />}
-    { isLoadingError && config.LOADING_ERROR_MESSAGE}
     {
       playersData.map(playerData => (
         <div key={playerData.id}>
@@ -20,9 +16,7 @@ const PlayersResults = ({ isLoadingData, isLoadingError, playersData }) => (
 );
 
 PlayersResults.propTypes = {
-  isLoadingData: PropTypes.bool.isRequired,
-  isLoadingError: PropTypes.bool.isRequired,
   playersData: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
-export default PlayersResults;
+export default withLoading(PlayersResults);

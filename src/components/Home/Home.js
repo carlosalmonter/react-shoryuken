@@ -19,17 +19,15 @@ class Home extends Component {
    * @param value
    */
   handleSearchTypeChanged = (event, index, value) => {
-    this.setState(() => ({
-      searchType: value,
-    }));
+    this.setState({ searchType: value });
   };
 
   /**
    * Stores the search string value when it changes on the input
-   * @param e
+   * @param event
    */
-  handleSearchStringChanged = (e) => {
-    this.props.onSearchStringChanged(e.target.value);
+  handleSearchStringChanged = (event) => {
+    this.props.onSearchStringChanged(event.target.value);
   };
 
   render() {
